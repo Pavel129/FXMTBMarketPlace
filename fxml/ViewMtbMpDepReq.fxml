@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import ru.inversion.bicomp.tablecolumn.JInvTableColumnAccountNum?>
+<?import ru.inversion.fx.form.controls.JInvCalendar?>
+<?import ru.inversion.fx.form.controls.JInvCheckBoxString?>
+<?import ru.inversion.fx.form.controls.JInvLabel?>
+<?import ru.inversion.fx.form.controls.JInvTabPane?>
+<?import ru.inversion.fx.form.controls.JInvTable?>
+<?import ru.inversion.fx.form.controls.JInvTableColumn?>
+<?import ru.inversion.fx.form.controls.JInvTableColumnBigDecimal?>
+<?import ru.inversion.fx.form.controls.JInvTableColumnDate?>
+<?import ru.inversion.fx.form.controls.JInvTableColumnMoney?>
+<?import ru.inversion.fx.form.controls.JInvTextArea?>
+<?import ru.inversion.fx.form.controls.JInvTextField?>
+<?import ru.inversion.fx.form.controls.JInvToolBar?>
+<?import ru.inversion.fx.form.controls.dsbar.DSInfoBar?>
+
+<?import ru.inversion.fx.form.controls.JInvPercentField?>
+<?import ru.inversion.fx.form.controls.JInvXMLViewer?>
+<?import javafx.scene.control.Button?>
+<?import ru.inversion.fx.form.controls.JInvMoneyField?>
+<?import ru.inversion.fx.form.controls.JInvComboBox?>
+<!--suppress ALL -->
+<VBox prefHeight="400.0" prefWidth="800.0" spacing="5.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.maritimebank.FXMTBMarketPlace.ViewMtbMpDepReqController">
+    <GridPane>
+        <columnConstraints>
+            <ColumnConstraints halignment="LEFT" />
+            <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" />
+        </columnConstraints>
+        <JInvToolBar fx:id="toolBar" />
+        <JInvToolBar fx:id="toolBarR" nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1">
+            <JInvTextField fx:id="BLANK_COUNT" nodeOrientation="LEFT_TO_RIGHT" prefWidth="50"/>
+            <JInvLabel text="%BLANK_COUNT" nodeOrientation="LEFT_TO_RIGHT"/>
+            <JInvComboBox fx:id="MTB_MP_DEP_REQ_PERIOD" fieldName="IPERID" nodeOrientation="LEFT_TO_RIGHT" promptText="%BLANK_PERIOD" nullText="%BLANK_NT"/>
+        </JInvToolBar>
+    </GridPane>
+    <SplitPane dividerPositions="0.5" orientation="VERTICAL">
+        <GridPane hgap="5.0" vgap="5.0">
+            <JInvTable fx:id="MTB_MP_DEP_REQ" tableMenuButtonVisible="true" GridPane.columnIndex="0" GridPane.rowIndex="0" VBox.vgrow="ALWAYS">
+                <columns>
+                    <JInvTableColumn fx:id="IMDRID" fieldName="IMDRID" text="%IMDRID" />
+                    <JInvTableColumnDate fx:id="DLOAD" dateFormat="DATE_TIME_DETAIL" fieldName="DLOAD" text="%DLOAD" />
+                    <JInvTableColumn fx:id="CMDRAGRID" alignment="CENTER_RIGHT" fieldName="CMDRAGRID" prefWidth="300.0" text="%CMDRAGRID" />
+                    <JInvTableColumn fx:id="IMDRSTATUS" fieldName="IMDRSTATUS" text="%IMDRSTATUS" />
+                    <JInvTableColumn fx:id="CABBCOM" fieldName="CABBCOM" prefWidth="300.0" text="%CABBCOM" />
+                    <JInvTableColumn fx:id="ICUSNUM" fieldName="ICUSNUM" text="%ICUSNUM" />
+                    <JInvTableColumn fx:id="CCUSNAME" fieldName="CCUSNAME" prefWidth="300.0" text="%CCUSNAME" />
+                    <JInvTableColumn fx:id="PASSP_RES" fieldName="PASSP_RES" prefWidth="300.0" text="%PASSP_RES" />
+                    <JInvTableColumn fx:id="INN_RESTR" fieldName="INN_RESTR" text="%INN_RESTR" />
+                    <JInvTableColumn fx:id="CMDRERR" fieldName="CMDRERR" prefWidth="300.0" text="%CMDRERR" />
+                    <JInvTableColumnMoney fx:id="R_AMOUNT" fieldName="R_AMOUNT" text="%R_AMOUNT" />
+                    <JInvTableColumnBigDecimal fx:id="R_RATE" fieldName="R_RATE" precision="4" text="%R_RATE" />
+                    <JInvTableColumn fx:id="CMDRAGRNUM" fieldName="CMDRAGRNUM" text="%CMDRAGRNUM" />
+                    <JInvTableColumn fx:id="QDG_STATUS" fieldName="QDG_STATUS" text="%QDG_STATUS" />
+                    <JInvTableColumnAccountNum fx:id="CQDGACC" fieldName="CQDGACC" text="%CQDGACC" />
+                <!--    <JInvTableColumnDate fx:id="DPOTACTION" dateFormat="DATE_TIME_DETAIL" fieldName="DPOTACTION" text="%DPOTACTION" />
+                    <JInvTableColumnDate fx:id="DTRNTRAN" dateFormat="DATE_TIME_DETAIL" fieldName="DTRNTRAN" text="%DTRNTRAN" />
+                    <JInvTableColumnMoney fx:id="MTRNSUM" fieldName="MTRNSUM" text="%MTRNSUM" />
+                    <JInvTableColumnAccountNum fx:id="CBNKORIGINALACCO" fieldName="CBNKORIGINALACCO" text="%CBNKORIGINALACCO" />
+                    -->
+                    <JInvTableColumn fx:id="IQDGIDENT" fieldName="IQDGIDENT" text="%IQDGIDENT" />
+                    <JInvTableColumn fx:id="IQDGSTATUS" fieldName="IQDGSTATUS" text="%IQDGSTATUS" />
+                <!--    <JInvTableColumn fx:id="ITRNNUM" fieldName="ITRNNUM" text="%ITRNNUM" />
+                    <JInvTableColumn fx:id="ITRNANUM" fieldName="ITRNANUM" text="%ITRNANUM" />
+                    -->
+                    <JInvTableColumn fx:id="IQDGCLI" fieldName="IQDGCLI" text="%IQDGCLI" />
+                <!--    <JInvTableColumnDate fx:id="OUT_DOC_DATE" dateFormat="DATE_TIME_DETAIL" fieldName="OUT_DOC_DATE" text="%OUT_DOC_DATE" />
+                    <JInvTableColumn fx:id="OUT_DOC_NUM" fieldName="OUT_DOC_NUM" text="%OUT_DOC_NUM" />
+                    <JInvTableColumn fx:id="OUT_DOC_PURP" fieldName="OUT_DOC_PURP" prefWidth="300.0" text="%OUT_DOC_PURP" />
+                    -->
+                    <JInvTableColumn fx:id="CCOLOR" fieldName="CCOLOR" text="%CCOLOR" />
+                </columns>
+                <VBox.margin>
+                    <Insets left="5.0" right="5.0" />
+                </VBox.margin>
+            </JInvTable>
+            <DSInfoBar fx:id="MTBMP_DEP_REQ_FX$MARK" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <VBox.margin>
+                    <Insets bottom="5.0" left="5.0" right="5.0" />
+                </VBox.margin>
+            </DSInfoBar>
+        </GridPane>
+        <JInvTabPane>
+                <tabs>
+                    <Tab fx:id="TAB_REQ" text="%TAB.REQ">
+                        <VBox spacing="5.0">
+                            <VBox.margin>
+                                <Insets left="5.0" right="5.0" />
+                            </VBox.margin>
+                            <GridPane hgap="5.0" vgap="5.0">
+                                <JInvLabel text="%CUS.LASTNAME" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <JInvTextField fx:id="CUS_LASTNAME" editable="false" fieldName="LASTNAME" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                <JInvLabel text="%CUS.FIRSTNAME" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <JInvTextField fx:id="CUS_FIRSTNAME" editable="false" fieldName="FIRSTNAME" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <JInvLabel text="%CUS.MIDDLENAME" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                <JInvTextField fx:id="CUS_MIDDLENAME" editable="false" fieldName="MIDDLENAME" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                <JInvLabel text="%CUS.ID" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                                <JInvTextField fx:id="CUS_ID" editable="false" fieldName="ID" prefWidth="250" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                <JInvLabel text="%CUS.GENDER" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+                                <JInvTextField fx:id="CUS_GENDER" editable="false" fieldName="GENDER" maxWidth="50" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                <JInvLabel text="%CUS.BIRTHDATE" GridPane.columnIndex="5" GridPane.rowIndex="0" />
+                                <JInvCalendar fx:id="CUS_BIRTHDATE" editable="false" fieldName="BIRTHDATE" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                <JInvLabel text="%CUS.BIRTHPLACE" GridPane.columnIndex="6" GridPane.rowIndex="0" />
+                                <JInvTextField fx:id="CUS_BIRTHPLACE" editable="false" fieldName="BIRTHPLACE" prefWidth="400" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                            </GridPane>
+                            <GridPane hgap="5.0" vgap="5.0">
+                                <JInvLabel text="%CUS.CITIZENSHIP" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <JInvTextField fx:id="CUS_CITIZENSHIP" editable="false" fieldName="CITIZENSHIP" maxWidth="50" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                <JInvLabel text="%CUS.INN" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <JInvTextField fx:id="CUS_INN" editable="false" fieldName="INN" maxWidth="95" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <JInvLabel text="%CUS.SNILS" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                <JInvTextField fx:id="CUS_SNILS" editable="false" fieldName="SNILS" maxWidth="105" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                <JInvLabel text="%CUS.IDEN_TYPE" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                                <JInvTextField fx:id="CUS_IDEN_TYPE" editable="false" fieldName="IDEN_TYPE" maxWidth="75" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                <JInvLabel text="%CUS.IDEN_DATE" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+                                <JInvCalendar fx:id="CUS_IDEN_DATE" editable="false" fieldName="IDEN_DATE" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                            </GridPane>
+                            <GridPane hgap="5.0" vgap="5.0">
+                                <JInvLabel text="%REG_FULLADDRESS" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
+                                <JInvTextField fx:id="REG_FULLADDRESS" editable="false" fieldName="REG_FULLADDRESS" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.rowIndex="0" />
+                                <JInvLabel text="%FIASCODE" GridPane.columnIndex="6" GridPane.rowIndex="0" />
+                                <JInvTextField fx:id="REG_FIASCODE" editable="false" fieldName="REG_FIASCODE" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="0" />
+                                <JInvLabel text="%COUNTRYID" GridPane.columnIndex="0" GridPane.rowIndex="1" /><JInvTextField fx:id="REG_COUNTRYID" editable="false" fieldName="REG_COUNTRYID" maxWidth="50" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                <JInvLabel text="%POSTCODE" GridPane.columnIndex="1" GridPane.rowIndex="1" /><JInvTextField fx:id="REG_POSTCODE" editable="false" fieldName="REG_POSTCODE" maxWidth="75" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                <JInvLabel text="%REGION" GridPane.columnIndex="2" GridPane.rowIndex="1" /><JInvTextField fx:id="REG_REGION" editable="false" fieldName="REG_REGION" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                <JInvLabel text="%CITY" GridPane.columnIndex="3" GridPane.rowIndex="1" /><JInvTextField fx:id="REG_CITY" editable="false" fieldName="REG_CITY" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                <JInvLabel text="%DISTRICT" GridPane.columnIndex="4" GridPane.rowIndex="1" /><JInvTextField fx:id="REG_DISTRICT" editable="false" fieldName="REG_DISTRICT" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                <JInvLabel text="%AREA" GridPane.columnIndex="5" GridPane.rowIndex="1" /><JInvTextField fx:id="REG_AREA" editable="false" fieldName="REG_AREA" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                                <JInvLabel text="%SETTLEMENT" GridPane.columnIndex="6" GridPane.rowIndex="1" /><JInvTextField fx:id="REG_SETTLEMENT" editable="false" fieldName="REG_SETTLEMENT" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                                <JInvLabel text="%STREET" GridPane.columnIndex="7" GridPane.rowIndex="1" /><JInvTextField fx:id="REG_STREET" editable="false" fieldName="REG_STREET" prefWidth="200" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+                                <JInvLabel text="%BUILDING" GridPane.columnIndex="8" GridPane.rowIndex="1" /><JInvTextField fx:id="REG_BUILDING" editable="false" fieldName="REG_BUILDING" maxWidth="50" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+                                <JInvLabel text="%FRAME" GridPane.columnIndex="9" GridPane.rowIndex="1" /><JInvTextField fx:id="REG_FRAME" editable="false" fieldName="REG_FRAME" maxWidth="50" GridPane.columnIndex="9" GridPane.rowIndex="2" />
+                                <JInvLabel text="%HOUSE" GridPane.columnIndex="10" GridPane.rowIndex="1" /><JInvTextField fx:id="REG_HOUSE" editable="false" fieldName="REG_HOUSE" maxWidth="50" GridPane.columnIndex="10" GridPane.rowIndex="2" />
+                                <JInvLabel text="%FLAT" GridPane.columnIndex="11" GridPane.rowIndex="1" /><JInvTextField fx:id="REG_FLAT" editable="false" fieldName="REG_FLAT" maxWidth="50" GridPane.columnIndex="11" GridPane.rowIndex="2" />
+
+                                <JInvLabel text="%RES_FULLADDRESS" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                                <JInvTextField fx:id="RES_FULLADDRESS" editable="false" fieldName="RES_FULLADDRESS" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.rowIndex="3" />
+                                <JInvLabel text="%FIASCODE" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+                                <JInvTextField fx:id="RES_FIASCODE" editable="false" fieldName="RES_FIASCODE" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                                <JInvLabel text="%COUNTRYID" GridPane.columnIndex="0" GridPane.rowIndex="4" /><JInvTextField fx:id="RES_COUNTRYID" editable="false" fieldName="RES_COUNTRYID" maxWidth="50" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                                <JInvLabel text="%POSTCODE" GridPane.columnIndex="1" GridPane.rowIndex="4" /><JInvTextField fx:id="RES_POSTCODE" editable="false" fieldName="RES_POSTCODE" maxWidth="75" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                <JInvLabel text="%REGION" GridPane.columnIndex="2" GridPane.rowIndex="4" /><JInvTextField fx:id="RES_REGION" editable="false" fieldName="RES_REGION" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                <JInvLabel text="%CITY" GridPane.columnIndex="3" GridPane.rowIndex="4" /><JInvTextField fx:id="RES_CITY" editable="false" fieldName="RES_CITY" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                                <JInvLabel text="%DISTRICT" GridPane.columnIndex="4" GridPane.rowIndex="4" /><JInvTextField fx:id="RES_DISTRICT" editable="false" fieldName="RES_DISTRICT" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                                <JInvLabel text="%AREA" GridPane.columnIndex="5" GridPane.rowIndex="4" /><JInvTextField fx:id="RES_AREA" editable="false" fieldName="RES_AREA" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+                                <JInvLabel text="%SETTLEMENT" GridPane.columnIndex="6" GridPane.rowIndex="4" /><JInvTextField fx:id="RES_SETTLEMENT" editable="false" fieldName="RES_SETTLEMENT" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+                                <JInvLabel text="%STREET" GridPane.columnIndex="7" GridPane.rowIndex="4" /><JInvTextField fx:id="RES_STREET" editable="false" fieldName="RES_STREET" prefWidth="200" GridPane.columnIndex="7" GridPane.rowIndex="5" />
+                                <JInvLabel text="%BUILDING" GridPane.columnIndex="8" GridPane.rowIndex="4" /><JInvTextField fx:id="RES_BUILDING" editable="false" fieldName="RES_BUILDING" maxWidth="50" GridPane.columnIndex="8" GridPane.rowIndex="5" />
+                                <JInvLabel text="%FRAME" GridPane.columnIndex="9" GridPane.rowIndex="4" /><JInvTextField fx:id="RES_FRAME" editable="false" fieldName="RES_FRAME" maxWidth="50" GridPane.columnIndex="9" GridPane.rowIndex="5" />
+                                <JInvLabel text="%HOUSE" GridPane.columnIndex="10" GridPane.rowIndex="4" /><JInvTextField fx:id="RES_HOUSE" editable="false" fieldName="RES_HOUSE" maxWidth="50" GridPane.columnIndex="10" GridPane.rowIndex="5" />
+                                <JInvLabel text="%FLAT" GridPane.columnIndex="11" GridPane.rowIndex="4" /><JInvTextField fx:id="RES_FLAT" editable="false" fieldName="RES_FLAT" maxWidth="50" GridPane.columnIndex="11" GridPane.rowIndex="5" />
+
+
+                            </GridPane>
+                            <JInvTable fx:id="MTB_MP_DEP_REQ_CUS" visible="false" />
+                        </VBox>
+                    </Tab>
+                    <Tab fx:id="TAB_FATCA" text="%TAB.FATCA">
+                        <VBox spacing="5">
+                            <JInvCheckBoxString fx:id="FA_OWNWILLACTION" fieldName="FA_OWNWILLACTION" text="%FA_OWNWILLACTION" />
+                            <JInvCheckBoxString fx:id="FA_NOONECONTROLSACTIONS" fieldName="FA_NOONECONTROLSACTIONS" text="%FA_NOONECONTROLSACTIONS" />
+                            <JInvCheckBoxString fx:id="FA_ONLYRUSSIANTAXPAYER" fieldName="FA_ONLYRUSSIANTAXPAYER" text="%FA_ONLYRUSSIANTAXPAYER" />
+                            <JInvCheckBoxString fx:id="FA_NOTUSABIRTHPLACE" fieldName="FA_NOTUSABIRTHPLACE" text="%FA_NOTUSABIRTHPLACE" />
+                            <JInvCheckBoxString fx:id="FA_NOTUSATAXPAYER" fieldName="FA_NOTUSATAXPAYER" text="%FA_NOTUSATAXPAYER" />
+                            <JInvCheckBoxString fx:id="FA_NOUSAGREENCARD" fieldName="FA_NOUSAGREENCARD" text="%FA_NOUSAGREENCARD" />
+                            <JInvLabel text="%FA_CRSSTATUS" />
+                            <JInvTextField fx:id="FA_CRSSTATUS" fieldName="FA_CRSSTATUS" maxWidth="150" prefWidth="150" />
+                            <SplitPane dividerPositions="0.5, 0.5" orientation="HORIZONTAL">
+                                <JInvTable fx:id="MTB_MP_DEP_REQ_DOC" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <JInvTableColumn fx:id="DOC_IMDRID" fieldName="IMDRID" text="%IMDRID" visible="false" />
+                                        <JInvTableColumn fx:id="DOC_TYPE" fieldName="DOC_TYPE" text="%DOC_TYPE" />
+                                        <JInvTableColumn fx:id="DOC_SER" fieldName="DOC_SER" text="%DOC_SER" />
+                                        <JInvTableColumn fx:id="DOC_NUM" fieldName="DOC_NUM" text="%DOC_NUM" />
+                                        <JInvTableColumnDate fx:id="ISSUEDATE" fieldName="ISSUEDATE" text="%ISSUEDATE" />
+                                        <JInvTableColumn fx:id="ISSUEAUTHORITYCODE" fieldName="ISSUEAUTHORITYCODE" text="%ISSUEAUTHORITYCODE" />
+                                        <JInvTableColumn fx:id="ISSUEAUTHORITYNAME" fieldName="ISSUEAUTHORITYNAME" prefWidth="300.0" text="%ISSUEAUTHORITYNAME" />
+                                    </columns>
+                                    <VBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                                    </VBox.margin>
+                                </JInvTable>
+                                <JInvTable fx:id="MTB_MP_DEP_REQ_PHONE" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <JInvTableColumn fx:id="PPHONE_IMDRID" fieldName="IMDRID" text="%IMDRID" visible="false" />
+                                        <JInvTableColumn fx:id="PHONE_TYPE" fieldName="PHONE_TYPE" text="%PHONE_TYPE" />
+                                        <JInvTableColumn fx:id="PHONE_NUM" fieldName="PHONE_NUM" text="%PHONE_NUM" />
+                                        <JInvTableColumnDate fx:id="PHONE_DATE" fieldName="PHONE_DATE" text="%PHONE_DATE" />
+                                    </columns>
+                                    <VBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                                    </VBox.margin>
+                                </JInvTable>
+                                <JInvTable fx:id="MTB_MP_DEP_REQ_EMAIL" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <JInvTableColumn fx:id="EMAIL_IMDRID" fieldName="IMDRID" text="%IMDRID" visible="false" />
+                                        <JInvTableColumn fx:id="EMAIL_TYPE" fieldName="EMAIL_TYPE" text="%EMAIL_TYPE" />
+                                        <JInvTableColumn fx:id="EMAIL_ADDR" fieldName="EMAIL_ADDR" prefWidth="300.0" text="%EMAIL_ADDR" />
+                                    </columns>
+                                    <VBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                                    </VBox.margin>
+                                </JInvTable>
+                            </SplitPane>
+                            <VBox.margin>
+                                <Insets left="5" right="5" />
+                            </VBox.margin>
+                        </VBox>
+                    </Tab>
+                    <Tab fx:id="TAB_COND" text="%TAB.COND">
+                        <VBox spacing="5">
+                            <GridPane hgap="5.0" vgap="5.0">
+                                <JInvLabel text="%PROD_ID" GridPane.columnIndex="0" GridPane.rowIndex="0" /><JInvTextField editable="false" fx:id="PROD_ID" fieldName="PROD_ID" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <JInvLabel text="%AMOUNT" GridPane.columnIndex="0" GridPane.rowIndex="1" /><JInvMoneyField editable="false" fx:id="AMOUNT" fieldName="AMOUNT" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <JInvLabel text="%DURATION_C" GridPane.columnIndex="0" GridPane.rowIndex="2" /><JInvTextField editable="false" fx:id="DURATION_C" fieldName="DURATION_C" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                <JInvLabel text="%DURATION_V" GridPane.columnIndex="0" GridPane.rowIndex="3" /><JInvTextField editable="false" fx:id="DURATION_V" fieldName="DURATION_V" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                <JInvLabel text="%ANNUALRATE" GridPane.columnIndex="0" GridPane.rowIndex="4" /><JInvPercentField fractionDigits="4" editable="false" fx:id="ANNUALRATE" fieldName="ANNUALRATE" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                <JInvLabel text="%IR_PERIOD_C" GridPane.columnIndex="0" GridPane.rowIndex="5" /><JInvTextField editable="false" fx:id="IR_PERIOD_C" fieldName="IR_PERIOD_C" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                <JInvLabel text="%IR_METHOD_C" GridPane.columnIndex="0" GridPane.rowIndex="6" /><JInvTextField editable="false" fx:id="IR_METHOD_C" fieldName="IR_METHOD_C" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                <JInvLabel text="%WD_MTM_C" GridPane.columnIndex="0" GridPane.rowIndex="7" /><JInvTextField editable="false" fx:id="WD_MTM_C" fieldName="WD_MTM_C" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                <JInvLabel text="%WD_ACCBIC" GridPane.columnIndex="0" GridPane.rowIndex="8" /><JInvTextField editable="false" fx:id="WD_ACCBIC" fieldName="WD_ACCBIC" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                <JInvLabel text="%WD_ACCNUM" GridPane.columnIndex="0" GridPane.rowIndex="9" /><JInvTextField editable="false" fx:id="WD_ACCNUM" fieldName="WD_ACCNUM" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                <JInvLabel text="%IP_ACCBIC" GridPane.columnIndex="0" GridPane.rowIndex="10" /><JInvTextField editable="false" fx:id="IP_ACCBIC" fieldName="IP_ACCBIC" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                <JInvLabel text="%IP_ACCNUM" GridPane.columnIndex="0" GridPane.rowIndex="11" /><JInvTextField editable="false" fx:id="IP_ACCNUM" fieldName="IP_ACCNUM" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                                <JInvLabel text="%AGRTEXT" GridPane.columnIndex="2" GridPane.rowIndex="0" /><JInvTextArea prefWidth="800" editable="false" fx:id="AGRTEXT" fieldName="AGRTEXT" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="11">
+                        <font>
+                           <Font name="Courier New" size="10.0" />
+                        </font></JInvTextArea>
+
+                            </GridPane>
+                            <JInvTable fx:id="MTB_MP_DEP_REQ_COND" visible="false" />
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" />
+                            </VBox.margin>
+                        </VBox>
+                    </Tab>
+                    <Tab fx:id="TAB_CHECK" text="%TAB.CHECK">
+                            <GridPane hgap="5.0" vgap="5.0">
+                                <JInvLabel text="%CHECK.NCODE" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                    <JInvTextField fx:id="CHECK_NCODE" editable="false" fieldName="NCODE" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                        <JInvLabel text="%CHECK.CDESCRIPTION" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                            <JInvTextField fx:id="CHECK_CDESCRIPTION" editable="false" fieldName="CDESCRIPTION" prefWidth="300.0" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                                <JInvLabel text="%CHECK.NREASONCODE" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                    <JInvTextField fx:id="CHECK_NREASONCODE" editable="false" fieldName="NREASONCODE" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <JInvLabel text="%CHECK.CREASONDESCRIPTION" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                            <JInvTextField fx:id="CHECK_CREASONDESCRIPTION" editable="false" fieldName="CREASONDESCRIPTION" prefWidth="300.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                <JInvLabel text="%CHECK.DNONVALIDSINCE" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                                    <JInvCalendar fx:id="CHECK_DNONVALIDSINCE" editable="false" fieldName="DNONVALIDSINCE" prefWidth="300.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+
+                            <JInvTable fx:id="MTB_MP_DEP_CHECK" tableMenuButtonVisible="true" GridPane.columnIndex="0" GridPane.columnSpan="6" GridPane.rowIndex="2" VBox.vgrow="ALWAYS">
+                                <columns>
+                                    <JInvTableColumn fx:id="CHECK_IMDRID" fieldName="IMDRID" text="%IMDRID" visible="false" />
+                                    <JInvTableColumn fx:id="CHECK_ID" fieldName="ID" text="%CHECK.ID" />
+                                    <JInvTableColumn fx:id="CHECK_NNUMBER" fieldName="NNUMBER" prefWidth="300.0" text="%CHECK.NNUMBER" />
+                                    <JInvTableColumnDate fx:id="CHECK_DDATE" fieldName="DDATE" text="%CHECK.DDATE" />
+                                    <JInvTableColumn fx:id="CHECK_CCODENO" fieldName="CCODENO" text="%CHECK.CCODENO" />
+                                    <JInvTableColumn fx:id="CHECK_CBIK" fieldName="CBIK" text="%CHECK.CBIK" />
+                                    <JInvTableColumnDate fx:id="CHECK_DDATEOFRECEIVEINFEDERALDB" dateFormat="DATE_TIME_DETAIL" fieldName="DDATEOFRECEIVEINFEDERALDB" text="%CHECK.DDATEOFRECEIVEINFEDERALDB" />
+                                </columns>
+
+                            </JInvTable>
+                            </GridPane>
+
+                    </Tab>
+                    <Tab fx:id="TAB_EVENT" text="%TAB.EVENT">
+                        <VBox spacing="5.0">
+        <JInvTable fx:id="MTB_MP_DEP_EVENT" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+            <columns>
+                <JInvTableColumn fx:id="MDE_IMDEID" fieldName="IMDEID" text="%MDE_IMDEID" />
+                <JInvTableColumn fx:id="MDE_IMDRID" fieldName="IMDRID" text="%MDE_IMDRID" />
+                <JInvTableColumn fx:id="MDE_CMDEID" fieldName="CMDEID" text="%MDE_CMDEID" />
+                <JInvTableColumn fx:id="MDE_CMDETYPE" fieldName="CMDETYPE" text="%MDE_CMDETYPE" />
+                <JInvTableColumn fx:id="MDE_CMDENAME" fieldName="CMDENAME" prefWidth="300.0" text="%MDE_CMDENAME" />
+                <JInvTableColumn fx:id="MDE_IMDESTATUS" fieldName="IMDESTATUS" text="%MDE_IMDESTATUS" />
+                <JInvTableColumn fx:id="MDE_TMDESTAMP" fieldName="TMDESTAMP" text="%MDE_TMDESTAMP" />
+                <JInvTableColumn fx:id="MDE_TMDEMOD" fieldName="TMDEMOD" text="%MDE_TMDEMOD" />
+                <JInvTableColumn fx:id="MDE_CMDECOMMENT" fieldName="CMDECOMMENT" prefWidth="300.0" text="%MDE_CMDECOMMENT" />
+                <JInvTableColumn fx:id="MDE_MESSAGEBODY" fieldName="MESSAGEBODY" text="%MDE_MESSAGEBODY" />
+                <JInvTableColumn fx:id="MDE_CMDEUSER" fieldName="CMDEUSER"  text="%MDE_CMDEUSER" />
+            </columns>
+        </JInvTable>
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" />
+                            </VBox.margin>
+                        </VBox>
+                    </Tab>
+                    <Tab fx:id="TAB_PAYMENT" text="%TAB.PAYMENT">
+                        <VBox spacing="5">
+                        <JInvTable fx:id="MTB_MP_DEP_REQ_PAYMENT" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <JInvTableColumn fx:id="PAY_IMDRID" visible="false" text="%IMDRID" fieldName="IMDRID"  />
+                                <JInvTableColumn fx:id="PAY_CMDRAGRNUM" visible="false" text="%CMDRAGRNUM" fieldName="CMDRAGRNUM"  />
+                                <JInvTableColumnDate fx:id="PAY_DPOTACTION_IN" text="%PAY_DPOTACTION_IN" fieldName="DPOTACTION_IN"  />
+                                <JInvTableColumn fx:id="PAY_IBNKPORTIONID_IN" visible="false" text="%PAY_IBNKPORTIONID_IN" fieldName="IBNKPORTIONID_IN"  />
+                                <JInvTableColumnBigDecimal fx:id="PAY_MBNKSUM_IN" text="%PAY_MBNKSUM_IN" fieldName="MBNKSUM_IN"  />
+                                <JInvTableColumnMoney fx:id="PAY_MQEVSUM" text="%PAY_MQEVSUM" fieldName="MQEVSUM"  />
+                                <JInvTableColumnDate fx:id="PAY_DQEVSYSDATE" text="%PAY_DQEVSYSDATE" fieldName="DQEVSYSDATE"  />
+                                <JInvTableColumn fx:id="PAY_IQEVTYPE" text="%PAY_IQEVTYPE" fieldName="IQEVTYPE"  />
+                                <JInvTableColumn fx:id="IQEVTRNNUM" text="%PAY_IQEVTRNNUM" fieldName="IQEVTRNNUM"  />
+                                <JInvTableColumn fx:id="IQEVTRNANUM" text="%PAY_IQEVTRNANUM" fieldName="IQEVTRNANUM"  />
+                                <JInvTableColumn fx:id="PAY_IBNKPORTIONID_OUT" text="%PAY_IBNKPORTIONID_OUT" fieldName="IBNKPORTIONID_OUT"  />
+                                <JInvTableColumnBigDecimal fx:id="PAY_MBNKSUM_OUT" text="%PAY_MBNKSUM_OUT" fieldName="MBNKSUM_OUT"  />
+                                <JInvTableColumnDate fx:id="PAY_DPOTACTION_OUT" text="%PAY_DPOTACTION_OUT" fieldName="DPOTACTION_OUT"  />
+                                <JInvTableColumn fx:id="PAY_IDVRTRNNUM" text="%PAY_IDVRTRNNUM" fieldName="IDVRTRNNUM"  />
+                            </columns>
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" />
+                            </VBox.margin>
+                        </JInvTable>
+                            <GridPane hgap="5" vgap="5">
+                                <JInvLabel text="%PAY_ITRNDOCNUM" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                                <JInvTextField fx:id="PAY_ITRNDOCNUM" editable="false" fieldName="ITRNDOCNUM" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="100"/>
+                                <JInvLabel text="%PAY_DTRNDOC" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                                <JInvCalendar fx:id="PAY_DTRNDOC" fieldName="DTRNDOC" editable="false" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+                                <JInvLabel text="%PAY_CTRNPURP" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                                <JInvTextField fx:id="PAY_CTRNPURP" fieldName="CTRNPURP" editable="false" GridPane.columnSpan="3" GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="800"/>
+                            </GridPane>
+                        </VBox>
+                    </Tab>
+                    <Tab fx:id="TAB_XML" text="%TAB.XML">
+                        <VBox spacing="5">
+                            <Button fx:id="BBXML" text="%BBXML"/>
+                            <JInvXMLViewer fx:id="BXML" prefHeight="400" />
+                            <VBox.margin>
+                                <Insets left="5" right="5"/>
+                            </VBox.margin>
+                        </VBox>
+                    </Tab>
+                </tabs>
+        </JInvTabPane>
+    </SplitPane>
+</VBox>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sql_expr_list>
+	<expression name="GetEventClob" lang = "PL/SQL">
+		<script><![CDATA[ BEGIN :ClobData:=mtb.mp_dep.get_event_body(:p1); END;]]></script>
+		<parameters>
+			<parameter name="p1" mode="IN" sqlType="NUMERIC" javaType="Long" />
+			<parameter name="ClobData" mode="OUT" sqlType="CLOB" />
+		</parameters>
+	</expression>
+	<expression name="MakeEvtCancel" lang = "PL/SQL">
+		<script><![CDATA[ BEGIN :nRet:=mtb.mp_dep.make_evt_cancel(pMDRID=>:pMDRID); END;]]></script>
+		<parameters>
+			<parameter name="pMDRID" mode="IN" sqlType="NUMERIC" javaType="Long" />
+			<parameter name="nRet" mode="OUT" sqlType="NUMERIC" javaType="Long" />
+		</parameters>
+	</expression>
+	<expression name="MakeEvtActivation" lang = "PL/SQL">
+		<script><![CDATA[ BEGIN :nRet:=mtb.mp_dep.make_evt_activation(pMDRID=>:pMDRID); END;]]></script>
+		<parameters>
+			<parameter name="pMDRID" mode="IN" sqlType="NUMERIC" javaType="Long" />
+			<parameter name="nRet" mode="OUT" sqlType="NUMERIC" javaType="Long" />
+		</parameters>
+	</expression>
+	<expression name="MakeEvtReplenish" lang = "PL/SQL">
+		<script><![CDATA[ BEGIN :nRet:=mtb.mp_dep.make_evt_replenish(pMDRID=>:pMDRID, pQevId=>:pQevId); END;]]></script>
+		<parameters>
+			<parameter name="pMDRID" mode="IN" sqlType="NUMERIC" javaType="Long" />
+			<parameter name="pQevId" mode="IN" sqlType="NUMERIC" javaType="Long" />
+			<parameter name="nRet" mode="OUT" sqlType="NUMERIC" javaType="Long" />
+		</parameters>
+	</expression>
+	<expression name="MakeDocRequest" lang = "PL/SQL">
+		<script><![CDATA[ BEGIN :nRet:=mtb.mp_dep.Make_DOC_Request(pMDRID=>:pMDRID); END;]]></script>
+		<parameters>
+			<parameter name="pMDRID" mode="IN" sqlType="NUMERIC" javaType="Long" />
+			<parameter name="nRet" mode="OUT" sqlType="NUMERIC" javaType="Long" />
+		</parameters>
+	</expression>
+	<expression name="MakeForcedLink" lang = "PL/SQL">
+		<script><![CDATA[ BEGIN mtb.mp_dep.Link_Customer_Deposit(pMDRID=>:pMDRID); END;]]></script>
+		<parameters>
+			<parameter name="pMDRID" mode="IN" sqlType="NUMERIC" javaType="Long" />
+		</parameters>
+	</expression>
+	<expression name="MakeBlank" lang = "PL/SQL">
+		<script><![CDATA[ BEGIN :nRet:=mtb.mp_dep.Make_Blank(pPERID=>:pPERID, pCount=>:pCount, pSaved=>:pSaved); END;]]></script>
+		<parameters>
+			<parameter name="pPERID" mode="IN" sqlType="NUMERIC" javaType="Long" />
+			<parameter name="pCount" mode="IN" sqlType="NUMERIC" javaType="Long" />
+			<parameter name="nRet" mode="OUT" sqlType="CLOB" javaType="String" />
+			<parameter name="pSaved" mode="OUT" sqlType="NUMERIC" javaType="Long" />
+		</parameters>
+	</expression>
+	<expression name="MakeEvtClose" lang = "PL/SQL">
+		<script><![CDATA[ BEGIN :nRet:=mtb.mp_dep.make_evt_close(pMDRID=>:pMDRID, pQevId=>:pQevId); END;]]></script>
+		<parameters>
+			<parameter name="pMDRID" mode="IN" sqlType="NUMERIC" javaType="Long" />
+			<parameter name="pQevId" mode="IN" sqlType="NUMERIC" javaType="Long" />
+			<parameter name="nRet" mode="OUT" sqlType="NUMERIC" javaType="Long" />
+		</parameters>
+	</expression>
+</sql_expr_list>
+
